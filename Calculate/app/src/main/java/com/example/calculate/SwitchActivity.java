@@ -1,6 +1,7 @@
 package com.example.calculate;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -103,7 +104,7 @@ public class SwitchActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 String text=editText1.getText().toString();
-                Integer text10= Integer.parseInt(text);
+                //Integer text10= Integer.parseInt(text);
                 //二进制转十进制
                 if(textId==0&&textId1==1){
                     result=Integer.valueOf(text,2).toString();
@@ -128,7 +129,7 @@ public class SwitchActivity extends AppCompatActivity {
                 }
                 //十进制转二进制
                 else if(textId==1&&textId1==0){
-                    result=Integer.toBinaryString(text10);
+                    result=Integer.toBinaryString(Integer.parseInt(text));
                     editText2.setText(result);
                 }
                 //十进制转十进制
@@ -137,12 +138,12 @@ public class SwitchActivity extends AppCompatActivity {
                 }
                 //十进制转八进制
                 else if(textId==1&&textId1==2){
-                    result=Integer.toOctalString(text10);
+                    result=Integer.toOctalString(Integer.parseInt(text));
                     editText2.setText(result);
                 }
                 //十进制转十六进制
                 else if(textId==1&&textId1==3){
-                    result=Integer.toHexString(text10);
+                    result=Integer.toHexString(Integer.parseInt(text));
                     editText2.setText(result);
                 }
                 //八进制转二进制
@@ -205,6 +206,10 @@ public class SwitchActivity extends AppCompatActivity {
                         D_text_Id=2;break;
                     case 3:
                         D_text_Id=3;break;
+                    case 4:
+                        D_text_Id=4;break;
+                    case 5:
+                        D_text_Id=5;break;
                     default:break;
                 }
             }
@@ -234,6 +239,10 @@ public class SwitchActivity extends AppCompatActivity {
                         D_text_Id1=2;break;
                     case 3:
                         D_text_Id1=3;break;
+                    case 4:
+                        D_text_Id1=4;break;
+                    case 5:
+                        D_text_Id1=5;break;
                     default:break;
                 }
             }
@@ -292,7 +301,7 @@ public class SwitchActivity extends AppCompatActivity {
                     sign=String.valueOf(number);
                     editText4.setText(sign);
                 }
-                else if(D_text_Id==2&&D_text_Id1==3){
+                else if(D_text_Id==2&&D_text_Id1==3||D_text_Id==5&&D_text_Id1==4){
                     number=text10/1000.0;
                     sign=String.valueOf(number);
                     editText4.setText(sign);
@@ -307,12 +316,23 @@ public class SwitchActivity extends AppCompatActivity {
                     sign=String.valueOf(number);
                     editText4.setText(sign);
                 }
-                else if(D_text_Id==3&&D_text_Id1==2){
+                else if(D_text_Id==3&&D_text_Id1==2||D_text_Id==4&&D_text_Id1==5){
                     number=text10*1000.0;
                     sign=String.valueOf(number);
                     editText4.setText(sign);
                 }
-                else if((D_text_Id==0&&D_text_Id1==0)||(D_text_Id==1&&D_text_Id1==1)||(D_text_Id==2&&D_text_Id1==2)||(D_text_Id==3&&D_text_Id1==3)){
+               /* else if(D_text_Id==4&&D_text_Id1==5){
+                    number=text10*1000.0;
+                    sign=String.valueOf(number);
+                    editText4.setText(sign);
+                }*/
+               /*else if(D_text_Id==5&&D_text_Id1==4){
+                    number=text10/1000.0;
+                    sign=String.valueOf(number);
+                    editText4.setText(sign);
+                }*/
+                else if((D_text_Id==0&&D_text_Id1==0)||(D_text_Id==1&&D_text_Id1==1)||(D_text_Id==2&&D_text_Id1==2)
+                        ||(D_text_Id==3&&D_text_Id1==3)||D_text_Id==4&&D_text_Id1==4||D_text_Id==5&&D_text_Id1==5){
                     editText4.setText(text);
                 }
             }

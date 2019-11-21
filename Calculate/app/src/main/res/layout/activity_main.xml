@@ -3,6 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#ffffff"
+
     android:orientation="vertical">
     <!-- 结果显示框 -->
     <EditText
@@ -29,9 +30,12 @@
             android:layout_height="wrap_content"
             android:text="0" />
     </TableRow>
-
+    <TableLayout
+    android:shrinkColumns="2"
+    android:layout_height="wrap_content"
+    android:layout_width="fill_parent">
     <TableRow
-        android:layout_width="wrap_content"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content">
         <!-- 显示当前是角度还是弧度，默认是角度DEG -->
         <TextView
@@ -52,6 +56,13 @@
             android:layout_height="wrap_content"
             android:text="C" />
     </TableRow>
+    </TableLayout>
+
+    <TableLayout
+    android:shrinkColumns="3,4"
+        android:layout_height="wrap_content"
+        android:layout_width="fill_parent">
+
 
     <TableRow
         android:layout_width="match_parent"
@@ -74,13 +85,13 @@
             android:layout_width="80sp"
             android:layout_height="wrap_content"
             android:text="cos" />
-        <!-- 正切计算 -->
+
         <Button
             android:id="@+id/tan"
             android:layout_width="80sp"
             android:layout_height="wrap_content"
             android:text="tan" />
-        <!-- 阶乘计算 -->
+
         <Button
             android:id="@+id/factorial"
             android:layout_width="80sp"
@@ -228,9 +239,6 @@
             android:text="√" />
     </TableRow>
 
-    <TableLayout
-        android:layout_width="fill_parent"
-        android:layout_height="57sp">
 
         <TableRow
             android:layout_width="match_parent"
